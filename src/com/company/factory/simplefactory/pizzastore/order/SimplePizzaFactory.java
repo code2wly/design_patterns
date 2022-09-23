@@ -5,6 +5,7 @@ import com.company.factory.simplefactory.pizzastore.pizza.GreekPizza;
 import com.company.factory.simplefactory.pizzastore.pizza.Pizza;
 
 /**
+ * 简单工厂模式
  * ❶简单工厂模式是属于创建型模式，是工厂模式的一种。简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。
  * 简单工厂模式是工厂模式家族中最简单实用的模式
  * ❷简单工厂模式：定义了一个创建对象的类，由这个类来封装实例化对象的行为(代码)

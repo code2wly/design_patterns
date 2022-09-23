@@ -1,31 +1,25 @@
-package com.company.factory.simplefactory.pizzastore.order;
+package com.company.factory.factorymethod.pizzastore.order;
 
-
-import com.company.factory.simplefactory.pizzastore.pizza.Pizza;
+import com.company.factory.factorymethod.pizzastore.pizza.Pizza;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-//订购披萨
-public class OrderPizza {
-    //定义一个简单工厂对象
-    SimplePizzaFactory simplePizzaFactory;
-    Pizza pizza = null;
+/**
+ * 工厂方法模式：定义了一个创建对象的抽象方法，由子类决定要实例化的类。工厂方法模式将对象的实例化推迟到子类。
+ */
+public abstract class OrderPizza {
+    //将披萨项目的实例化功能抽象成抽象方法，在不同的口味点餐子类中具体实现
+    abstract Pizza createPizza(String orderType);
 
     //构造器
-    public OrderPizza(SimplePizzaFactory simplePizzaFactory) {
-        setSimplePizzaFactory(simplePizzaFactory);
-    }
-
-
-    public void setSimplePizzaFactory(SimplePizzaFactory simplePizzaFactory) {
-        String orderType = "";
-        this.simplePizzaFactory = simplePizzaFactory;
+    public OrderPizza() {
+        Pizza pizza = null;
+        String orderType; //订购披萨的类型
         do {
-            //使用简单工厂模式订购披萨
             orderType = getType();
-            pizza = simplePizzaFactory.createPizza(orderType);
+            pizza = createPizza(orderType);
             //输出pizza制作过程
             if (pizza != null) {
                 pizza.prepare();
