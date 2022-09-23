@@ -27,7 +27,7 @@ public abstract class OrderPizza {
                 pizza.cut();
                 pizza.bake();
             } else {
-                System.out.println("抱歉，没有该类型的披萨啦~");
+                System.out.println("订购失败，没有该类型的披萨~");
                 break;
             }
         } while (true);
@@ -37,7 +37,7 @@ public abstract class OrderPizza {
     private String getType() {
         try {
             BufferedReader string = new BufferedReader(new InputStreamReader(System.in));
-            System.out.print("input pizza type：");
+            System.out.print("--input pizza type：");
             String str = string.readLine();
             return str;
         } catch (IOException e) {

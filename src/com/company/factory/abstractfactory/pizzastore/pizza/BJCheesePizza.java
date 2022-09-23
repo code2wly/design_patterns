@@ -1,4 +1,5 @@
-package com.company.factory.factorymethod.pizzastore.pizza;
+package com.company.factory.abstractfactory.pizzastore.pizza;
+
 //北京的芝士披萨
 public class BJCheesePizza extends Pizza{
     @Override

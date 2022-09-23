@@ -1,30 +1,29 @@
-package com.company.factory.simplefactory.pizzastore.order;
+package com.company.factory.abstractfactory.pizzastore.order;
 
-
-import com.company.factory.simplefactory.pizzastore.pizza.Pizza;
+import com.company.factory.abstractfactory.pizzastore.pizza.Pizza;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-//订购披萨
+//定购披萨
 public class OrderPizza {
-    //定义一个简单工厂对象
-    SimpleFactory simpleFactory;
-    Pizza pizza = null;
+    AbsFactory absFactory;
 
     //构造器
-    public OrderPizza(SimpleFactory simplePizzaFactory) {
-        setSimpleFactory(simplePizzaFactory);
+    public OrderPizza(AbsFactory absFactory) {
+        setAbsFactory(absFactory);
     }
 
-    public void setSimpleFactory(SimpleFactory simpleFactory) {
+    private void setAbsFactory(AbsFactory absFactory) {
+        Pizza pizza = null;
+        this.absFactory = absFactory;
         String orderType = "";
-        this.simpleFactory = simpleFactory;
+        this.absFactory = absFactory;
+
         do {
-            //使用简单工厂模式订购披萨
             orderType = getType();
-            pizza = simpleFactory.createPizza(orderType);
+            pizza = absFactory.createPizza(orderType);
             //输出pizza制作过程
             if (pizza != null) {
                 pizza.prepare();
@@ -32,7 +31,7 @@ public class OrderPizza {
                 pizza.cut();
                 pizza.bake();
             } else {
-                System.out.println("抱歉，没有该类型的披萨啦~");
+                System.out.println("订购失败，没有该类型的披萨~");
                 break;
             }
         } while (true);

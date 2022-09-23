@@ -11,7 +11,7 @@ import com.company.factory.simplefactory.pizzastore.pizza.Pizza;
  * ❷简单工厂模式：定义了一个创建对象的类，由这个类来封装实例化对象的行为(代码)
  * ❸在软件开发中，当我们会用到大量的创建某种、某类或者某批对象时，就会使用到工厂模式.
  */
-public class SimplePizzaFactory {
+public class SimpleFactory {
 
     //根据orderType返回对应的Pizza对象
     public Pizza createPizza(String orderType) {
